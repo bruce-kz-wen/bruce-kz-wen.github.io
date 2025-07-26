@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruce Wen - Research</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #ffffff;
+            --text-color: #333333;
+            --primary-link-color: #1a7c73;
+            --hover-link-color: #115750;
+            --heading-color: #222222;
+            --border-color: #e0e0e0;
+            --highlight-bg: #f1f1f1;
+            --font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        body { font-family: var(--font-family); color: var(--text-color); background-color: var(--background-color); margin: 0; padding: 2rem; display: flex; justify-content: center; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        .container { width: 100%; max-width: 960px; }
+        header { text-align: center; margin-bottom: 4rem; }
+        header h1 { font-size: 2.75rem; font-weight: 600; color: var(--heading-color); margin-bottom: 1.5rem; }
+        nav { display: flex; justify-content: center; gap: 1rem; }
+        nav a { text-decoration: none; color: var(--primary-link-color); padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 999px; transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; }
+        nav a:hover { color: var(--hover-link-color); background-color: var(--highlight-bg); }
+        nav a.active { color: var(--hover-link-color); background-color: var(--highlight-bg); font-weight: 600; }
+        main { font-size: 1.1rem; line-height: 1.8; }
+        ul { list-style-type: none; padding-left: 0; }
+        
+        /* --- NEW: Shared styles for paper listings --- */
+        .title-container {
+            flex-grow: 1;
+        }
+        .coauthors {
+            font-size: 0.95rem;
+            color: #6c757d; /* Softer gray for coauthors */
+            padding-top: 0.1rem;
+        }
+        .links {
+            margin-left: 1rem;
+            white-space: nowrap;
+        }
+
+        /* Styles for expandable list (Working Papers) */
+        .expandable { margin-bottom: 0.5rem; }
+        .item-header { display: flex; align-items: flex-start; cursor: pointer; padding: 0.5rem 0; }
+        .bullet { 
+            font-size: 1.5em; 
+            line-height: 1.2; 
+            font-weight: 600; 
+            color: var(--primary-link-color); 
+            margin-right: 0.75rem; 
+            transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .abstract { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), padding 0.5s cubic-bezier(0.25, 0.1, 0.25, 1); padding-left: 2.35rem; font-size: 1rem; color: #555; line-height: 1.7; }
+        li.expandable.active .abstract { max-height: 500px; padding-top: 0.5rem; padding-bottom: 1rem; }
+        li.expandable.active .bullet { transform: rotate(90deg); }
+
+        /* Styles for simple list (Works in Progress) */
+        .simple-list li {
+            display: flex;
+            align-items: flex-start;
+            padding-left: 0;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        .simple-list li::before {
+            content: '•'; /* Dot for simple list */
+            color: var(--primary-link-color);
+            margin-right: 0.75rem;
+            font-size: 1.2em;
+            line-height: 1.4;
+        }
+
+        ul a { text-decoration: none; color: var(--primary-link-color); font-weight: 600; transition: color 0.2s ease; }
+        ul a:hover { color: var(--hover-link-color); text-decoration: underline; }
+        section { margin-bottom: 3.5rem; }
+        h2 { font-size: 1.75rem; font-weight: 600; color: var(--heading-color); margin-bottom: 0.75rem; }
+        hr { border: 0; height: 1px; background: var(--border-color); margin-bottom: 2rem; }
+        @media (max-width: 768px) { body { padding: 1.5rem 1rem; } header h1 { font-size: 2.25rem; } nav { gap: 0.5rem; } nav a { padding: 0.4rem 0.8rem; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bruce Wen</h1>
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="research.html" class="active">RESEARCH</a>
+                <a href="teaching.html">TEACHING</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h2>Working Papers</h2>
+                <hr>
+                <ul>
+                    <li class="expandable">
+                         <div class="item-header">
+                            <span class="bullet">›</span>
+                            <div class="title-container">
+                                <div class="title">Identification and Optimal Reserve Prices in Ascending Auctions, with an Application to Art</div>
+                                <div class="coauthors">with Kirill Ponomarev</div>
+                            </div>
+                            <span class="links">[<a href="files/auction_paper.pdf">paper</a>]</span>
+                        </div>
+                        <div class="abstract">
+                            <p>This paper proposes a novel non-parametric approach to partial identification of the
+distribution of the highest valuation, seller’s expected profit, and optimal reserve price
+in symmetric ascending auctions. Our approach restricts the distribution of valuations away from the pure common- and independent private values settings, leading
+to substantially tighter bounds. It also accommodates an unknown number of bidders, as long as bounds on it are available. Additionally, we formulate and solve the
+Min-Max-Regret problem of the seller choosing a reserve price while facing ambiguity about the distribution of valuations. We apply the proposed methodology to a
+new dataset consisting of more than 3500 art auctions held by the two largest auction
+houses, Christie’s and Sotheby’s. For Modern Art sold in New York City priced between $1.0M and $10.0M, we find that setting reserve prices 26% higher would increase
+the seller’s expected profit by at least $126K per lot, or $3.8M per auction.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <!-- <section>
+                <h2>Works in Progress</h2>
+                <hr>
+                <ul class="simple-list">
+                    <li>
+                        <div class="title-container">
+                            <div class="title">Optimal Reserve Prices in Art Auctions</div>
+                             <div class="coauthors">with Kirill Ponomarev</div>
+                        </div>
+                        <span class="links">[<a href="files/art-auctions.pdf">paper</a>]</span>
+                    </li>
+                    <li>
+                        <div class="title-container">
+                             <div class="title">Selecting Inequalities for Sharp Identification in Models with Set-Valued Predictions</div>
+                             <div class="coauthors">with Ye Luo and Hai Wang</div>
+                        </div>
+                        <span class="links">[<a href="files/inequalities-identification.pdf">paper</a>]</span>
+                    </li>
+                </ul>
+            </section> -->
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const expandableItems = document.querySelectorAll('.expandable');
+            expandableItems.forEach(item => {
+                const header = item.querySelector('.item-header');
+                if (header) {
+                    header.addEventListener('click', (event) => {
+                        // Prevent click from bubbling to link and opening abstract
+                        if (event.target.tagName === 'A') {
+                            return;
+                        }
+                        item.classList.toggle('active');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
