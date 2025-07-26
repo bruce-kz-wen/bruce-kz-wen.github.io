@@ -4,56 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bruce Wen - Contact</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --background-color: #ffffff;
-            --text-color: #333333;
-            --primary-link-color: #1a7c73;
-            --hover-link-color: #115750;
-            --heading-color: #222222;
-            --border-color: #e0e0e0;
-            --highlight-bg: #f1f1f1;
-            --font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
-        body { font-family: var(--font-family); color: var(--text-color); background-color: var(--background-color); margin: 0; padding: 2rem; display: flex; justify-content: center; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-        .container { width: 100%; max-width: 960px; }
-        header { text-align: center; margin-bottom: 4rem; }
-        header h1 { font-size: 2.75rem; font-weight: 600; color: var(--heading-color); margin-bottom: 1.5rem; }
-        nav { display: flex; justify-content: center; gap: 1rem; }
-        nav a { text-decoration: none; color: var(--primary-link-color); padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 999px; transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out; }
-        nav a:hover { color: var(--hover-link-color); background-color: var(--highlight-bg); }
-        nav a.active { color: var(--hover-link-color); background-color: var(--highlight-bg); font-weight: 600; }
-        main { font-size: 1.1rem; line-height: 1.8; }
-        .contact-layout { text-align: center; }
-        .banner-image {
-            width: 100%;
-            max-width: 200px; /* Set max-width to your image's native width */
-            height: auto;     /* Maintain aspect ratio */
-            margin-bottom: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-        .contact-details { line-height: 1.8; }
-        @media (max-width: 768px) { body { padding: 1.5rem 1rem; } header h1 { font-size: 2.25rem; } nav { gap: 0.5rem; } nav a { padding: 0.4rem 0.8rem; } }
-    </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Bruce Wen</h1>
-            <nav>
-                <a href="index.html">HOME</a>
-                <a href="research.html">RESEARCH</a>
-                <a href="teaching.html">TEACHING</a>
-                <a href="contact.html" class="active">CONTACT</a>
-            </nav>
-        </header>
+        <div id="header-placeholder"></div>
         <main class="contact-layout">
-            <img class="banner-image" src="images/cf-1954.jpg" alt="Yale University Campus"
-                 onerror="this.onerror=null;this.src='https://placehold.co/200x224/f1f1f1/115750?text=Yale';">
+            <img class="banner-image" src="images/cf-1954.jpg" alt="Yale University Campus" onerror="this.onerror=null;this.src='https://placehold.co/200x224/f1f1f1/115750?text=Yale';">
             <div class="contact-details">
                  <p><b>Contact:</b> bruce.wen [at] yale [dot] edu</p>
                  <p>Department of Economics, Yale University</p>
@@ -62,5 +22,6 @@
             </div>
         </main>
     </div>
+    <script src="js/main.js"></script>
 </body>
 </html>
