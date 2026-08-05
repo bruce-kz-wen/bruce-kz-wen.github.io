@@ -98,7 +98,7 @@ li.expandable.active .bullet { transform: rotate(90deg); }
 .garden-intro { font-size: 1.05rem; color: #6c757d; margin-top: 0; margin-bottom: 2rem; }
 .garden-list .item-header { align-items: baseline; }
 /* Fixed-width date column so every link starts at the same horizontal position */
-.garden-date { flex: 0 0 11.5rem; color: #6c757d; }
+.garden-date { flex: 0 0 12.5rem; color: #6c757d; }
 .garden-list a { flex: 1; }
 
 /* Contact Page */
