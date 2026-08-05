@@ -94,6 +94,16 @@ li.expandable.active .bullet { transform: rotate(90deg); }
 .no-bullet li { padding-left: 0; }
 .no-bullet li::before { display: none; }
 
+/* Garden Page */
+.garden-intro { font-size: 1.05rem; color: #6c757d; margin-top: 0; margin-bottom: 2rem; }
+.garden-list li { padding: 1rem 0; border-bottom: 1px solid var(--border-color); }
+.garden-list li:first-child { padding-top: 0; }
+.garden-list li:last-child { border-bottom: 0; }
+.garden-item-header { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.garden-item-header a { font-size: 1.15rem; }
+.garden-item-header time { font-size: 0.95rem; color: #6c757d; white-space: nowrap; }
+.garden-description { margin: 0.25rem 0 0; font-size: 1rem; color: #555; line-height: 1.7; }
+
 /* Contact Page */
 .contact-layout { text-align: center; }
 .banner-image { width: 100%; max-width: 200px; height: auto; margin-bottom: 2.5rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); }
