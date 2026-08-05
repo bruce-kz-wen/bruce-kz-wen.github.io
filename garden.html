@@ -16,23 +16,41 @@
             <section>
                 <h2>Garden</h2>
                 <hr>
-                <p class="garden-intro">Notes, drafts, and other things in progress.</p>
+                <p class="garden-intro">Some notes.</p>
                 <ul class="garden-list">
                     <!--
                         To add an entry, copy the <li> block below, put the file in files/garden/,
                         and keep the list ordered newest first.
                     -->
-                    <li>
-                        <div class="garden-item-header">
+                    <li class="expandable">
+                        <div class="item-header">
+                            <span class="bullet">›</span>
+                            <time class="garden-date" datetime="2026-08-05">August 5, 2026:</time>
                             <a href="files/garden/example-note.pdf">Example note</a>
-                            <time datetime="2026-08-05">August 2026</time>
                         </div>
-                        <p class="garden-description">A one-sentence description of what this file is about.</p>
+                        <div class="abstract">
+                            <p>A one-sentence description of what this file is about.</p>
+                        </div>
                     </li>
                 </ul>
             </section>
         </main>
     </div>
     <script src="js/main.js"></script>
+    <script>
+        // Expand/collapse each garden entry to reveal its description
+        document.addEventListener('DOMContentLoaded', function() {
+            const expandableItems = document.querySelectorAll('.expandable');
+            expandableItems.forEach(item => {
+                const header = item.querySelector('.item-header');
+                if (header) {
+                    header.addEventListener('click', (event) => {
+                        if (event.target.tagName === 'A') return;
+                        item.classList.toggle('active');
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

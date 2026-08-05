@@ -96,13 +96,10 @@ li.expandable.active .bullet { transform: rotate(90deg); }
 
 /* Garden Page */
 .garden-intro { font-size: 1.05rem; color: #6c757d; margin-top: 0; margin-bottom: 2rem; }
-.garden-list li { padding: 1rem 0; border-bottom: 1px solid var(--border-color); }
-.garden-list li:first-child { padding-top: 0; }
-.garden-list li:last-child { border-bottom: 0; }
-.garden-item-header { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
-.garden-item-header a { font-size: 1.15rem; }
-.garden-item-header time { font-size: 0.95rem; color: #6c757d; white-space: nowrap; }
-.garden-description { margin: 0.25rem 0 0; font-size: 1rem; color: #555; line-height: 1.7; }
+.garden-list .item-header { align-items: baseline; }
+/* Fixed-width date column so every link starts at the same horizontal position */
+.garden-date { flex: 0 0 11.5rem; color: #6c757d; }
+.garden-list a { flex: 1; }
 
 /* Contact Page */
 .contact-layout { text-align: center; }
@@ -117,4 +114,8 @@ li.expandable.active .bullet { transform: rotate(90deg); }
     nav a { padding: 0.4rem 0.8rem; font-size: 1rem; }
     .home-layout { flex-direction: column; align-items: center; text-align: center; gap: 2.5rem; }
     .profile-image { flex-basis: auto; width: 180px; height: 180px; }
+    /* Too narrow for a fixed date column: let the link wrap under the date */
+    .garden-list .item-header { flex-wrap: wrap; }
+    .garden-date { flex: 0 0 auto; margin-right: 0.5rem; }
+    .garden-list a { flex: 1 1 auto; }
 }
