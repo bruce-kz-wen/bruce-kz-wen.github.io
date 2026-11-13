@@ -95,6 +95,10 @@ li.expandable.active .bullet { transform: rotate(90deg); }
 /* Teaching Page */
 .no-bullet li { padding-left: 0; }
 .no-bullet li::before { display: none; }
+/* Course on top, school underneath in grey, term right-aligned like a CV date */
+.teaching-item { display: flex; align-items: flex-start; margin-bottom: 1rem; }
+.teaching-school { font-size: 0.95rem; color: #6c757d; padding-top: 0.1rem; }
+.teaching-term { margin-left: 1rem; white-space: nowrap; color: #6c757d; }
 
 /* Garden Page */
 .garden-intro { font-size: 1.05rem; color: #6c757d; margin-top: 0; margin-bottom: 2rem; }
@@ -120,4 +124,7 @@ li.expandable.active .bullet { transform: rotate(90deg); }
     .garden-list .item-header { flex-wrap: wrap; }
     .garden-date { flex: 0 0 auto; margin-right: 0.5rem; }
     .garden-list a { flex: 1 1 auto; }
+    /* Too narrow for a right-hand term column: stack the term under the school */
+    .teaching-item { flex-direction: column; }
+    .teaching-term { margin-left: 0; font-size: 0.95rem; }
 }
