@@ -89,6 +89,8 @@ li.expandable.active .abstract { max-height: 500px; padding-top: 0.5rem; padding
 li.expandable.active .bullet { transform: rotate(90deg); }
 .static-item { margin-bottom: 0.5rem; }
 .static-item .item-header { cursor: default; }
+/* Plain dot instead of the expand arrow; pinned to the arrow's width so titles line up across sections */
+.static-item .bullet { flex: 0 0 0.282em; min-width: 0; text-align: center; }
 .simple-list li { display: flex; align-items: flex-start; padding-left: 0; position: relative; margin-bottom: 1.5rem; }
 .simple-list li::before { content: '•'; color: var(--primary-link-color); margin-right: 0.75rem; font-size: 1.2em; line-height: 1.4; }
 
@@ -116,7 +118,7 @@ li.expandable.active .bullet { transform: rotate(90deg); }
 @media (max-width: 768px) {
     body { padding: 1.5rem 1rem; }
     header h1 { font-size: 2.5rem; }
-    nav { gap: 0.5rem; }
+    nav { gap: 0.25rem 0.5rem; flex-wrap: wrap; }
     nav a { padding: 0.4rem 0.8rem; font-size: 1rem; }
     .home-layout { flex-direction: column; align-items: center; text-align: center; gap: 2.5rem; }
     .profile-image { flex-basis: auto; width: 180px; height: 180px; }
