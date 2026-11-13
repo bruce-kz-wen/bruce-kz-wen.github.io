@@ -87,6 +87,8 @@ ul a:hover { color: var(--hover-link-color); text-decoration: underline; }
 .abstract { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), padding 0.5s cubic-bezier(0.25, 0.1, 0.25, 1); padding-left: 2.35rem; font-size: 1rem; color: #555; line-height: 1.7; }
 li.expandable.active .abstract { max-height: 500px; padding-top: 0.5rem; padding-bottom: 1rem; }
 li.expandable.active .bullet { transform: rotate(90deg); }
+.static-item { margin-bottom: 0.5rem; }
+.static-item .item-header { cursor: default; }
 .simple-list li { display: flex; align-items: flex-start; padding-left: 0; position: relative; margin-bottom: 1.5rem; }
 .simple-list li::before { content: '•'; color: var(--primary-link-color); margin-right: 0.75rem; font-size: 1.2em; line-height: 1.4; }
 
