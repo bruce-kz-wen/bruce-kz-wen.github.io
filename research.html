@@ -2,6 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+        // ===== COAUTHOR LINKS =====
+        // Every place that name appears under a paper becomes a link. Leave the link as "" to show plain text.
+        const COAUTHOR_LINKS = {
+            "Kirill Ponomarev":     "https://kirillponomarev.com/research/",
+            "Matthew Backus":       "https://mbackus.github.io/",
+            "Dirk Bergemann":       "https://campuspress.yale.edu/dirkbergemann/",
+            "Soheil Ghili":         "https://sites.google.com/view/soheil-ghili/home",
+            "Jianliang He":         "https://jlianghe.github.io/",
+            "Xinyang Hu":           "https://cadmy.yale.edu/profile/xinyang-hu",
+            "Ralvi Isufaj":         "https://scholar.google.com/citations?user=RI8sDYAAAAAJ&hl=en",
+            "Nitzan Mekel-Bobrov":  "https://www.linkedin.com/in/nmekelbobrov/",
+            "Alex Nus":             "https://www.linkedin.com/in/alexander-nus-146b3318/",
+            "Zhuoran Yang":         "https://zhuoranyang.github.io/",
+        };
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bruce Wen - Research</title>
     <link rel="stylesheet" href="css/style.css">
@@ -52,7 +68,16 @@
                             <span class="bullet">•</span>
                             <div class="title-container">
                                 <div class="title">AI Negotiators for Real Markets: The Case of eBay</div>
-                                <div class="coauthors">with Matthew Backus, Dirk Bergemann, Soheil Ghili, Jianliang He, Xinyang Hu, Ralvi Isufaj, Nitzn Mekel-Bobrov, Alex Nus, Zhuoran Yang</div>
+                                <div class="coauthors">with Matthew Backus, Dirk Bergemann, Soheil Ghili, Jianliang He, Xinyang Hu, Ralvi Isufaj, Nitzan Mekel-Bobrov, Alex Nus, Zhuoran Yang</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="static-item">
+                        <div class="item-header">
+                            <span class="bullet">•</span>
+                            <div class="title-container">
+                                <div class="title">AI Negotiators for Real Markets: The Case of eBay</div>
+                                <div class="coauthors">with Matthew Backus, Dirk Bergemann, Soheil Ghili, Jianliang He, Xinyang Hu, Ralvi Isufaj, Nitzan Mekel-Bobrov, Alex Nus, Zhuoran Yang</div>
                             </div>
                         </div>
                     </li>
@@ -73,6 +98,39 @@
                         item.classList.toggle('active');
                     });
                 }
+            });
+
+            // Turn coauthor names into links, using COAUTHOR_LINKS at the top of this file
+            const normalize = s => s.trim().replace(/\s+/g, ' ');
+            const links = {};
+            Object.entries(COAUTHOR_LINKS).forEach(([name, url]) => {
+                if (url.trim()) links[normalize(name)] = url.trim();
+            });
+            const names = Object.keys(links).sort((a, b) => b.length - a.length);
+            if (names.length === 0) return;
+            const escape = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s+');
+            // Whole names only, so "Alex Nus" won't match inside "Alex Nussbaum"
+            const pattern = new RegExp('(?<!\\p{L})(' + names.map(escape).join('|') + ')(?!\\p{L})', 'gu');
+            document.querySelectorAll('.coauthors').forEach(el => {
+                Array.from(el.childNodes).forEach(node => {
+                    if (node.nodeType !== Node.TEXT_NODE) return;
+                    const parts = node.textContent.split(pattern);
+                    if (parts.length === 1) return;
+                    const fragment = document.createDocumentFragment();
+                    parts.forEach((part, i) => {
+                        if (i % 2 === 1) {
+                            const a = document.createElement('a');
+                            a.href = links[normalize(part)];
+                            a.target = '_blank';
+                            a.rel = 'noopener';
+                            a.textContent = part;
+                            fragment.appendChild(a);
+                        } else if (part) {
+                            fragment.appendChild(document.createTextNode(part));
+                        }
+                    });
+                    node.replaceWith(fragment);
+                });
             });
         });
     </script>

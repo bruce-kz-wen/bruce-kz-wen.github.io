@@ -80,6 +80,8 @@ ul a:hover { color: var(--hover-link-color); text-decoration: underline; }
 /* Research Page */
 .title-container { flex-grow: 1; }
 .coauthors { font-size: 0.95rem; color: #6c757d; padding-top: 0.1rem; }
+/* Coauthor links: teal like other links, but regular weight so the grey line stays light */
+.coauthors a { font-weight: 400; }
 .links { margin-left: 1rem; white-space: nowrap; }
 .expandable { margin-bottom: 0.5rem; }
 .item-header { display: flex; align-items: flex-start; cursor: pointer; padding: 0.5rem 0; }
